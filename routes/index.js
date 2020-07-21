@@ -10,7 +10,7 @@ router.use((req, res, next) => {
 })
 
 router.get('/', (req, res) => {
-  res.send('hello homepage')
+  res.render('index', { name: 'todos' })
 })
 
 router.use('/todos', todos)

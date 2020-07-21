@@ -18,6 +18,9 @@
   "homepage": "https://github.com/trycrmr/mern-todo-app#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "nodemon": "^2.0.4"
+    "express-react-views": "^0.11.0",
+    "nodemon": "^2.0.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
