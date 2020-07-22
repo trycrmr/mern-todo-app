@@ -1,4 +1,6 @@
 const router = require('express').Router()
+import path from 'path'
+import utils from '../utils'
 const mw = require('../middlewares')
 
 
@@ -10,7 +12,7 @@ router.use((req, res, next) => {
 })
 
 router.get('/', (req, res) => {
-  res.render('index', { name: 'todos' })
+  res.sendFile(path.join(utils.getAppRoot, 'dist/index.html'))
 })
 
 router.use('/todos', todos)

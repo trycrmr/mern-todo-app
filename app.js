@@ -1,17 +1,31 @@
-const path = require('path')
+// const path = require('path')
+import path from 'path'
 const express = require('express')
+const webpack = require('webpack');
+
+import {setConfig} from 'react-hot-loader'
+setConfig({logLevel: 'debug'})
+
+console.info(process.env.NODE_ENV)
 
 const router = require('./routes/index')
+
+const webpackConfig = require('./webpack.config.js');
+const compiler = webpack(webpackConfig);
+
 const PORT = 3000
 
 const app = express()
-app.use('/static', express.static(path.join(__dirname, 'public')))
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jsx');
-app.engine('jsx', require('express-react-views').createEngine({
-  beautify: true
-}));
+app.use(
+  require('webpack-dev-middleware')(compiler, {
+      noInfo: true,
+      publicPath: webpackConfig.output.publicPath
+  })
+);
+app.use(require('webpack-hot-middleware')(compiler));
+
+app.use('/dist', express.static(path.join(__dirname, 'dist')))
 
 app.use('/', router)
 
