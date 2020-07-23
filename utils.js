@@ -1,9 +1,9 @@
-import path from 'path'
+import path from "path";
 
-const getAppRoot = (() => __dirname)()
+const getAppRoot = (() => __dirname)();
 
 const utils = {
-  getAppRoot
-}
+  getAppRoot,
+};
 
-export default utils
+export default utils;

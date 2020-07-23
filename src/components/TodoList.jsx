@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const AddTodoForm = props => {
-  return(
+const AddTodoForm = (props) => {
+  return (
     <ul>
       <li>A todo</li>
       <li>A todo</li>
@@ -15,7 +15,7 @@ const AddTodoForm = props => {
       <li>A todo</li>
       <li>A todo</li>
     </ul>
-  )
-}
+  );
+};
 
-export default AddTodoForm
+export default AddTodoForm;

@@ -1,12 +1,12 @@
-const router = require('express').Router()
+const router = require("express").Router();
 
 router
-// .checkout('/', (req, res) => {})
-// .copy('/', (req, res) => {})
-// .delete('/', (req, res) => {})
-.get('/', (req, res) => {
-  res.send('hello from todos get')
-})
+  // .checkout('/', (req, res) => {})
+  // .copy('/', (req, res) => {})
+  // .delete('/', (req, res) => {})
+  .get("/", (req, res) => {
+    res.send("hello from todos get");
+  });
 // .head('/', (req, res) => {})
 // .lock('/', (req, res) => {})
 // .merge('/', (req, res) => {})
@@ -27,4 +27,4 @@ router
 // .unlock('/', (req, res) => {})
 // .unsubscribe('/', (req, res) => {})
 
-module.exports = router
+module.exports = router;
