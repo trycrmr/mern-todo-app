@@ -1,8 +1,8 @@
 import { hot } from "react-hot-loader/root";
 import React, { Component } from "react";
 import "./App.css";
-import AddTodoForm from "../AddTodoForm/AddTodoForm.jsx";
-import TodoList from "../TodoList/TodoList.jsx";
+import AddTodoForm from "./AddTodoForm.jsx";
+import TodoList from "./TodoList.jsx";
 
 const App = (props) => {
   return (
