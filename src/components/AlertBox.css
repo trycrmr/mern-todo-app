@@ -1,0 +1,9 @@
+.alertBox {
+  position: absolute;
+  bottom: 0px;
+  background-color: thistle;
+  border: 0.2rem solid black;
+  width: 100vw;
+  margin: auto;
+  padding: 0.2rem;
+}

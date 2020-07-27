@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import "./App.css";
 import AddTodoForm from "./AddTodoForm.jsx";
 import TodoList from "./TodoList.jsx";
+import ErrorBoundary from "./ErrorBoundary";
+import AlertBox from "./AlertBox";
 
 const App = (props) => {
   const [state, setState] = useState({
@@ -32,6 +34,9 @@ const App = (props) => {
       </p>
       <AddTodoForm addTodo={addTodo} />
       <TodoList todos={state.todos} completeToDo={completeToDo} />
+      <ErrorBoundary>
+        <AlertBox />
+      </ErrorBoundary>
     </div>
   );
 };
