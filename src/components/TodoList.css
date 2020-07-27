@@ -1,5 +1,5 @@
-summary {
-  margin: 1.2rem;
-  border: 0.1rem solid black;
-  font-weight: 1000;
+.todoList {
+  background-color: teal;
+  padding: 0.2rem;
+  margin: 0.2rem 0 0 0;
 }

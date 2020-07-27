@@ -6,8 +6,6 @@ const webpack = require("webpack");
 import { setConfig } from "react-hot-loader";
 setConfig({ logLevel: "debug" });
 
-console.info(process.env.NODE_ENV);
-
 const router = require("./routes/index");
 
 const webpackConfig = require("./webpack.config.js");
@@ -19,7 +17,7 @@ const app = express();
 
 app.use(
   require("webpack-dev-middleware")(compiler, {
-    noInfo: true,
+    // noInfo: true,
     publicPath: webpackConfig.output.publicPath,
   })
 );
@@ -30,5 +28,7 @@ app.use("/dist", express.static(path.join(__dirname, "dist")));
 app.use("/", router);
 
 app.listen(PORT, () => {
-  console.info(`Listening on port ${PORT}`);
+  console.info(
+    `Listening on port ${PORT}. Running as a ${process.env.NODE_ENV} environment.`
+  );
 });
