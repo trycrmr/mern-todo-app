@@ -19,9 +19,11 @@
   "homepage": "https://github.com/trycrmr/mern-todo-app#readme",
   "dependencies": {
     "@hot-loader/react-dom": "^16.13.0",
+    "apollo-server-express": "^2.16.1",
     "autoprefixer": "^9.8.5",
     "express": "^4.17.1",
     "express-react-views": "^0.11.0",
+    "graphql-tools": "^6.0.15",
     "html-webpack-plugin": "^4.3.0",
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
