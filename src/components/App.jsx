@@ -5,6 +5,7 @@ import AddTodoForm from "./AddTodoForm.jsx";
 import TodoList from "./TodoList.jsx";
 import ErrorBoundary from "./ErrorBoundary";
 import AlertBox from "./AlertBox";
+import { ApolloProvider } from "@apollo/client";
 
 const App = (props) => {
   const [state, setState] = useState({
