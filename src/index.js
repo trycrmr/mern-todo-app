@@ -17,7 +17,14 @@ const client = new ApolloClient({
 //   .query({
 //     query: gql`
 //       {
-//         hello
+//         todos {
+//           id
+//           title
+//           description
+//           createdAt
+//           createdBy
+//           isCompleted
+//         }
 //       }
 //     `,
 //   })

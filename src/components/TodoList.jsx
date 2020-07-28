@@ -1,12 +1,27 @@
 import React from "react";
 import "./TodoList.css";
 import Todo from "./Todo.jsx";
+import { gql, useQuery } from "@apollo/client";
+
+const GET_TODOS = gql`
+  {
+    todos {
+      id
+      title
+      description
+      createdAt
+      createdBy
+      isCompleted
+    }
+  }
+`;
 
 const TodoList = (props) => {
-  const someTodos = props.todos;
+  const { loading, error, data } = useQuery(GET_TODOS);
+  // const someTodos = props.todos;
 
   const processTodos = (arrOfTodos) => {
-    return someTodos.map((thisTodo) => {
+    return arrOfTodos.map((thisTodo) => {
       return (
         <Todo
           key={thisTodo.id}
@@ -16,7 +31,10 @@ const TodoList = (props) => {
       );
     });
   };
-  return <section className="todoList">{processTodos(someTodos)}</section>;
+  if (loading) return "Loading todos...";
+  if (error) return `There was an error.`;
+
+  return <section className="todoList">{processTodos(data.todos)}</section>;
 };
 
 export default TodoList;

@@ -1,4 +1,5 @@
 import { ApolloServer, gql } from "apollo-server-express";
+import todos from "./todos.js";
 
 const typeDefs = `
   type Todo { 
@@ -11,13 +12,15 @@ const typeDefs = `
   }
   
   type Query {
-    hello: String
+    hello: String,
+    todos: [Todo]
   }
 `;
 
 const resolvers = {
   Query: {
     hello: () => "Hello y'all",
+    todos: () => todos,
   },
 };
 
