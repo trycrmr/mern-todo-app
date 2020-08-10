@@ -27,6 +27,8 @@
     "graphql": "^15.3.0",
     "graphql-tools": "^6.0.15",
     "html-webpack-plugin": "^4.3.0",
+    "mongodb": "^3.5.9",
+    "mongoose": "^5.9.26",
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

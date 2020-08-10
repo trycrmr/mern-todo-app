@@ -3,6 +3,7 @@ import express from "express";
 import webpack from "webpack";
 import gqlServer from "./graphqlServer.js";
 import { setConfig } from "react-hot-loader";
+import initMongo from "./models/mongo";
 
 const PORT = 3000;
 
