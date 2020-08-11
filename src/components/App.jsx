@@ -11,9 +11,9 @@ const App = (props) => {
     todos: [],
   });
 
-  const addTodo = (newTodo) => {
-    setState({ todos: [...state.todos, newTodo] });
-  };
+  // const addTodo = (newTodo) => {
+  //   setState({ todos: [...state.todos, newTodo] });
+  // };
 
   const completeToDo = (completedTodo) => {
     const updatedToDos = state.todos.map((thisTodo) => {
@@ -32,7 +32,7 @@ const App = (props) => {
         My Todo App is great. It's the best Todo App. Ask anyone. They'll tell
         you. It's the greatest.
       </p>
-      <AddTodoForm addTodo={addTodo} />
+      <AddTodoForm />
       <TodoList completeToDo={completeToDo} />
       <ErrorBoundary>
         <AlertBox />
