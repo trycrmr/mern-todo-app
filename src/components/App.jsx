@@ -5,7 +5,6 @@ import AddTodoForm from "./AddTodoForm.jsx";
 import TodoList from "./TodoList.jsx";
 import ErrorBoundary from "./ErrorBoundary";
 import AlertBox from "./AlertBox";
-import { ApolloProvider } from "@apollo/client";
 
 const App = (props) => {
   const [state, setState] = useState({
@@ -34,7 +33,7 @@ const App = (props) => {
         you. It's the greatest.
       </p>
       <AddTodoForm addTodo={addTodo} />
-      <TodoList todos={state.todos} completeToDo={completeToDo} />
+      <TodoList completeToDo={completeToDo} />
       <ErrorBoundary>
         <AlertBox />
       </ErrorBoundary>

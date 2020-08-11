@@ -4,8 +4,8 @@ import Todo from "./Todo.jsx";
 import { gql, useQuery } from "@apollo/client";
 
 const GET_TODOS = gql`
-  {
-    todos {
+  query {
+    getTodos {
       id
       title
       description
@@ -18,9 +18,9 @@ const GET_TODOS = gql`
 
 const TodoList = (props) => {
   const { loading, error, data } = useQuery(GET_TODOS);
-  // const someTodos = props.todos;
 
   const processTodos = (arrOfTodos) => {
+    if (arrOfTodos.length === 0) return "No todos. Create a todo!";
     return arrOfTodos.map((thisTodo) => {
       return (
         <Todo
@@ -34,7 +34,7 @@ const TodoList = (props) => {
   if (loading) return "Loading todos...";
   if (error) return `There was an error.`;
 
-  return <section className="todoList">{processTodos(data.todos)}</section>;
+  return <section className="todoList">{processTodos(data.getTodos)}</section>;
 };
 
 export default TodoList;

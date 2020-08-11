@@ -13,23 +13,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-// client
-//   .query({
-//     query: gql`
-//       {
-//         todos {
-//           id
-//           title
-//           description
-//           createdAt
-//           createdBy
-//           isCompleted
-//         }
-//       }
-//     `,
-//   })
-//   .then((result) => console.log(result));
-
 const initialApp = (
   <ApolloProvider client={client}>
     <App />

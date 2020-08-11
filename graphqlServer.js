@@ -32,6 +32,9 @@ const typeDefs = `
       createdAt: String
       createdBy: String
       isCompleted: Boolean
+    ): Todo,
+    deleteTodo(
+      id: String
     ): Todo
   }
 `;
@@ -55,6 +58,16 @@ const resolvers = {
           createdBy: "Terry",
           isCompleted: false,
         }).save();
+        return res;
+      } catch (err) {
+        return err;
+      }
+    },
+    deleteTodo: async (parent, args, context, info) => {
+      try {
+        let res = await context.mdbModels.Todo.deleteOne({
+          id: `${args.id}`,
+        });
         return res;
       } catch (err) {
         return err;
