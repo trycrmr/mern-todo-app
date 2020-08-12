@@ -1,7 +1,7 @@
 import React from "react";
 import Input from "./Input.jsx";
 import useForm from "../useForm";
-import { useMutation } from "@apollo/client";
+import { useMutation, gql } from "@apollo/client";
 import { SET_TODO } from "../gql.js";
 
 const AddTodoForm = (props) => {
@@ -15,7 +15,29 @@ const AddTodoForm = (props) => {
 
   const [values, setValues] = useForm();
 
-  const [setTodo, { data }] = useMutation(SET_TODO);
+  const [setTodo, { data }] = useMutation(SET_TODO, {
+    update(cache, { data: { newTodo } }) {
+      cache.modify({
+        fields: {
+          todos(existingTodos = []) {
+            const newTodoRef = cache.writeFragment({
+              data: newTodo,
+              fragment: gql`
+                fragment NewTodo on todos {
+                  id
+                  title
+                  description
+                  createdAt
+                  createdBy
+                  isCompleted
+                }
+              `,
+            });
+          },
+        },
+      });
+    },
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -27,4 +27,17 @@ const SET_TODO = gql`
   }
 `;
 
-export { SET_TODO };
+const GET_TODOS = gql`
+  query {
+    todos {
+      id
+      title
+      description
+      createdAt
+      createdBy
+      isCompleted
+    }
+  }
+`;
+
+export { SET_TODO, GET_TODOS };

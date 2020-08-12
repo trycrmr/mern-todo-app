@@ -1,20 +1,8 @@
 import React from "react";
 import "./TodoList.css";
 import Todo from "./Todo.jsx";
-import { gql, useQuery } from "@apollo/client";
-
-const GET_TODOS = gql`
-  query {
-    getTodos {
-      id
-      title
-      description
-      createdAt
-      createdBy
-      isCompleted
-    }
-  }
-`;
+import { useQuery } from "@apollo/client";
+import { GET_TODOS } from "../gql.js";
 
 const TodoList = (props) => {
   const { loading, error, data } = useQuery(GET_TODOS);
@@ -34,7 +22,7 @@ const TodoList = (props) => {
   if (loading) return "Loading todos...";
   if (error) return `There was an error.`;
 
-  return <section className="todoList">{processTodos(data.getTodos)}</section>;
+  return <section className="todoList">{processTodos(data.todos)}</section>;
 };
 
 export default TodoList;

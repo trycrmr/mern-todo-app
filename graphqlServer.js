@@ -1,5 +1,4 @@
-import { ApolloServer, gql } from "apollo-server-express";
-import todos from "./todos.js";
+import { ApolloServer } from "apollo-server-express";
 import initMongo from "./models/mongo";
 
 const mdbModels = initMongo();
@@ -21,7 +20,6 @@ const typeDefs = `
   type Query {
     hello: String,
     todos: [Todo]
-    getTodos: [Todo]
   }
 
   type Mutation {
@@ -42,8 +40,7 @@ const typeDefs = `
 const resolvers = {
   Query: {
     hello: () => "Hello y'all",
-    todos: () => todos,
-    getTodos: async (parent, args, context, info) => {
+    todos: async (parent, args, context, info) => {
       let result = await context.mdbModels.Todo.find({});
       return result;
     },
